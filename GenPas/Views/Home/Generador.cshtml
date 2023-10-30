@@ -1,0 +1,23 @@
+@model Usuario
+
+<main>
+    <nav>
+        <form asp-action="LogOut" asp-controller="Home" method="POST">
+            <div class="barraSesion">
+                <h1>Welcome @Context.Session.GetString("Nombre")!</h1>
+                <button class=logout>Log out</button>
+            </div>
+        </form>
+    </nav>
+    <div class="contenido">
+        <form asp-action="Generador" asp-controller="Home" method="POST">
+            <div class="cuadro">
+                <h1>Random passcode #@ViewBag.Conteo</h1>
+                <input asp-for="Password" class="cuadroTextoPass" disabled>
+                <div class="botonEnvio">
+                    <button class="submit">Generate</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
